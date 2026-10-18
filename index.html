@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>有空嗎？｜一起找時間</title>
+<meta name="description" content="用一個連結，找出大家都有空的時間。">
+<style>
+:root{font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;color:#263431;background:#f7f8f4;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.55}header{background:#fff;border-bottom:1px solid #e4eae3}nav{max-width:1120px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:850;font-size:21px;letter-spacing:-.05em;color:#204f40;text-decoration:none}.brand span{display:inline-grid;place-items:center;background:#286a53;color:white;border-radius:10px;width:34px;height:34px;margin-right:9px}.tag{font-size:13px;color:#64766c}.wrap{max-width:1120px;margin:auto;padding:36px 24px 80px}.intro{max-width:750px;margin:38px auto 28px;text-align:center}.eyebrow{font-size:12px;letter-spacing:.16em;font-weight:800;color:#498169}.intro h1{font-size:clamp(36px,6vw,62px);letter-spacing:-.055em;line-height:1.15;margin:12px 0 14px;color:#163e31}.intro p{color:#6b7a71;line-height:1.8;margin:0}.card{background:#fff;border:1px solid #e3eae2;border-radius:20px;box-shadow:0 12px 42px #223c2910}.create{max-width:760px;margin:30px auto;padding:30px}.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:22px}.section-head h2{font-size:20px;margin:0 0 6px;letter-spacing:-.03em}.section-head p,.muted{font-size:14px;color:#75857a;line-height:1.65;margin:0}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.field{display:flex;flex-direction:column;gap:8px}.field.full{grid-column:1/-1}label{font-size:13px;font-weight:700;color:#43594b}input,select{width:100%;border:1px solid #dce5dc;background:#fff;border-radius:10px;padding:12px 13px;color:#243a2c;outline:none}input:focus,select:focus,button:focus-visible{outline:3px solid #abd7bf;outline-offset:2px}.helper{font-size:12px;color:#87978a}.btn{border:0;border-radius:10px;background:#286a53;color:#fff;padding:12px 18px;font-weight:750;transition:background .15s}.btn:hover{background:#1f5744}.btn.secondary{background:#eff5ef;color:#285741}.btn.secondary:hover{background:#e2eee3}.btn.outline{background:#fff;color:#286a53;border:1px solid #cfe0d1}.create .btn{width:100%;margin-top:24px}.steps{max-width:760px;margin:34px auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{display:flex;gap:10px;align-items:flex-start}.num{background:#e5f0e6;color:#327356;border-radius:50%;width:27px;height:27px;display:grid;place-items:center;font-size:12px;font-weight:bold;flex:none}.step b{font-size:13px}.step p{font-size:12px;color:#829086;margin:5px 0;line-height:1.5}.alert{max-width:760px;margin:20px auto;padding:15px 18px;background:#fff7e6;border:1px solid #f2ddb6;color:#81591c;border-radius:12px;font-size:14px;line-height:1.6}.alert.error{background:#fff0ed;border-color:#f3cec8;color:#a23d32}.event-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:20px 0}.event-top h1{margin:8px 0;font-size:clamp(28px,4vw,40px);letter-spacing:-.04em;color:#183f32}.actions{display:flex;gap:8px;flex-wrap:wrap}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;align-items:start}.panel{padding:24px}.panel h2{font-size:18px;margin:0 0 6px}.legend{display:flex;align-items:center;gap:5px;color:#849487;font-size:12px}.swatch{width:17px;height:17px;border-radius:4px;background:#edf2ec}.swatch.s1{background:#c4e5cf}.swatch.s2{background:#7bc69a}.swatch.s3{background:#398d62}.grid-scroll{overflow:auto;margin-top:16px;padding-bottom:4px}.grid{display:grid;min-width:450px;gap:3px;user-select:none;touch-action:pan-y}.grid-head{font-size:12px;color:#64766a;text-align:center;padding:8px 0}.grid-head b{display:block;font-size:14px;color:#2c4434}.grid-time{font-size:11px;color:#94a196;text-align:right;padding:4px 6px 0 0}.slot{min-height:27px;border:0;border-radius:4px;background:#edf2ec;touch-action:none;padding:0}.slot:hover{outline:2px solid #8fcba3}.slot.selected{background:#2e8a5e;box-shadow:inset 0 0 0 2px #206c49}.slot.heat1{background:#c4e5cf}.slot.heat2{background:#7bc69a}.slot.heat3{background:#398d62}.grid-note{font-size:12px;color:#829186;margin:12px 0 0}.person-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:18px 0}.person-row label{display:block;margin-bottom:6px}.person-row input{min-width:0}.sidebar .card{padding:22px;margin-bottom:16px}.side-title{font-weight:800;font-size:15px;margin:0 0 12px}.count{font-size:30px;font-weight:800;color:#285c45}.count small{font-size:13px;color:#849388;font-weight:500}.people{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.chip{font-size:12px;background:#edf5ed;color:#446953;border-radius:99px;padding:6px 10px;overflow-wrap:anywhere}.best{font-size:14px;color:#3e5d4a;line-height:1.7}.best p{margin:6px 0}.empty{color:#97a59a;font-size:13px}.footer{text-align:center;color:#a2afa4;font-size:12px;margin-top:50px}.status{font-size:12px;color:#778c7e}.badge{color:#397558;background:#e9f4e9;padding:6px 10px;border-radius:99px;font-size:12px;font-weight:700}.hidden{display:none!important}#notice{margin:15px 0}.back{border:0;background:none;color:#61806d;padding:0;font-size:13px}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}@media(max-width:760px){.wrap{padding:24px 16px 60px}.intro{margin-top:28px}.create{padding:22px}.layout{grid-template-columns:1fr}.event-top{align-items:flex-start;flex-direction:column}.sidebar{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sidebar .card{margin:0}.panel{padding:17px}.tag{display:none}}@media(max-width:480px){.steps{grid-template-columns:1fr}.fields{gap:12px}.sidebar{grid-template-columns:1fr}.person-row{align-items:stretch;flex-direction:column}.person-row .btn{width:100%}}
+
+/* Playful web style: rounded cards, dark outlines and offset shadows. */
+:root{font-family:"Arial Rounded MT Bold","Nunito","Noto Sans TC",system-ui,sans-serif;color:#293548;background:#fff9f5}
+body{background:#fff9f5}
+header{background:transparent;border:0;padding:18px 24px 0}
+nav{max-width:1120px;min-height:76px;padding:12px 22px;background:#fff;border:3px solid #293548;border-radius:22px;box-shadow:6px 6px 0 #293548}
+.brand{color:#293548;font-size:21px;font-weight:900;letter-spacing:-.035em}
+.brand span{background:#ffc1bc;color:#293548;border:3px solid #293548;width:40px;height:40px;border-radius:12px;box-shadow:2px 2px 0 #293548}
+.tag{color:#65738a;font-weight:700}
+.wrap{padding-top:32px}
+#home{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1fr);column-gap:72px;align-items:center}
+.intro{max-width:none;margin:0;text-align:left}
+.eyebrow{display:inline-block;padding:9px 15px;background:#a0f39f;border:3px solid #293548;border-radius:999px;font-size:12px;letter-spacing:.04em;color:#293548;font-weight:900}
+.intro h1{font-size:clamp(40px,5.1vw,63px);line-height:1.28;letter-spacing:-.055em;color:#293548;font-weight:950;margin:22px 0}
+.intro h1 span{color:#20b955}
+.intro p{color:#66768e;font-size:16px;line-height:1.9}
+.card{border:3px solid #293548;border-radius:22px;background:#fff;box-shadow:7px 7px 0 #293548}
+.create{max-width:none;margin:0;padding:28px;position:relative}
+.create:before,.create:after{position:absolute;display:grid;place-items:center;width:48px;height:48px;border:3px solid #293548;border-radius:14px;color:#293548;font-size:23px;box-shadow:3px 3px 0 #293548}
+.create:before{content:'✦';background:#ffc1bc;right:-19px;top:-21px;transform:rotate(7deg)}
+.create:after{content:'✓';background:#b8e4ef;left:-22px;bottom:-23px;transform:rotate(-7deg)}
+.section-head h2,.panel h2{color:#293548;font-weight:900;font-size:21px}
+.section-head p,.muted{color:#64738b}
+.fields{gap:16px}
+label{color:#293548;font-weight:800}
+input,select{border:2px solid #293548;border-radius:11px;color:#293548;background:#fff;padding:11px 12px}
+input::placeholder{color:#9099a9}
+input:focus,select:focus,button:focus-visible{outline:3px solid #20b955;outline-offset:3px}
+.helper{color:#65738a}
+.btn{border:3px solid #293548;background:#20c65a;color:#172b26;box-shadow:4px 4px 0 #293548;border-radius:12px;font-weight:900;transition:transform .15s,box-shadow .15s,background .15s}
+.btn:hover{background:#50d679;transform:translate(2px,2px);box-shadow:2px 2px 0 #293548}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 #293548}
+.btn.secondary,.btn.secondary:hover{background:#a0f39f;color:#293548}
+.btn.outline{background:#b2dfe9;color:#293548;border:3px solid #293548}
+.btn.outline:hover{background:#c9ecf2}
+.create .btn{margin-top:18px;min-height:50px}
+.badge{background:#b2dfe9;border:2px solid #293548;color:#293548;padding:6px 10px;font-weight:800;white-space:nowrap}
+.steps{grid-column:1/-1;max-width:none;width:100%;margin:66px auto 0;gap:18px}
+.step{align-items:center;border:3px solid #293548;border-radius:16px;background:#fff;padding:16px;box-shadow:4px 4px 0 #293548}
+.step:nth-child(2){background:#f0eafd}.step:nth-child(3){background:#e1f6e1}
+.step b{font-size:14px;color:#293548;font-weight:900}
+.step p{color:#64738b}
+.num{width:37px;height:37px;background:#ffc1bc;border:2px solid #293548;color:#293548;font-size:14px}
+.step:nth-child(2) .num{background:#b2dfe9}.step:nth-child(3) .num{background:#a0f39f}
+.alert{max-width:none;border:3px solid #293548;background:#fff1c4;color:#514525;box-shadow:4px 4px 0 #293548;margin:0 auto 32px}
+.alert.error{background:#ffe2df;border-color:#293548;color:#8a302d}
+.event-top h1{color:#293548;font-weight:950}
+.event-top .eyebrow{background:#b2dfe9}
+.layout{gap:24px}
+.panel{padding:25px}
+.sidebar .card{padding:22px;margin-bottom:20px}
+.sidebar .card:nth-child(2){background:#effbea}.sidebar .card:nth-child(3){background:#f0eafd}
+.side-title{color:#293548;font-weight:900}
+.count{color:#158643}.count small,.status{color:#65738a}
+.chip{background:#b2dfe9;color:#293548;border:2px solid #293548;font-weight:700}
+.best{color:#293548}.empty{color:#68778e}.back{color:#293548;font-weight:800}
+.legend{color:#58697e}.swatch{border:1px solid #293548;background:#edf2f4}.swatch.s1{background:#c1efc8}.swatch.s2{background:#86df9c}.swatch.s3{background:#20b955}
+.grid{gap:4px}.grid-head,.grid-time{color:#65738a}.grid-head b{color:#293548}
+.slot{background:#eef2f4;border:1px solid #c3cbd2;border-radius:5px}
+.slot:hover{outline:2px solid #293548}.slot.selected{background:#20c65a;box-shadow:inset 0 0 0 2px #293548}
+.slot.heat1{background:#c1efc8}.slot.heat2{background:#86df9c}.slot.heat3{background:#20b955}
+.grid-note{color:#65738a}.footer{color:#8994a5}
+@media(max-width:850px){#home{grid-template-columns:1fr;gap:38px}.intro{text-align:center}.create{max-width:600px;width:100%;margin:auto}.steps{margin-top:6px}.layout{grid-template-columns:1fr}}
+@media(max-width:760px){header{padding:12px 16px 0}nav{min-height:65px;padding:10px 14px;border-radius:17px;box-shadow:4px 4px 0 #293548}.wrap{padding:27px 20px 65px}.intro{margin:0}.intro h1{font-size:clamp(38px,9vw,54px)}.steps{grid-template-columns:repeat(3,1fr)}.sidebar{grid-template-columns:1fr 1fr}.panel{padding:18px}}
+@media(max-width:560px){.intro p br{display:none}.create{padding:20px}.create:before{width:39px;height:39px;right:-13px;top:-17px}.create:after{width:39px;height:39px;left:-13px;bottom:-18px}.steps{grid-template-columns:1fr;gap:14px}.sidebar{grid-template-columns:1fr}.event-top .actions{width:100%}.fields{gap:13px}.field{min-width:0}.section-head{gap:8px}}
+
+@media(max-width:400px){.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.create{padding:18px}input,select{min-width:0}}
+
+/* UI UX Pro Max review: touch, feedback, focus and resilient layout. */
+:root{--ink:#293548;--muted:#52627a;--green:#20c65a;--success:#116b37;--pink:#ffc1bc;--blue:#b2dfe9}
+input,select{font-size:16px;min-height:46px}.btn,.back{min-height:46px}.back{padding:10px 2px}
+.panel,.layout>*,.event-top>*,.actions{min-width:0}.section-head{flex-wrap:wrap}
+.event-top h1,.chip,.best,.alert,.status{overflow-wrap:anywhere}.actions{align-items:center;gap:12px}
+.muted,.helper,.grid-note,.tag,.count small,.empty,.status,.intro p,.step p,.section-head p{color:var(--muted)}
+.intro h1 span{color:#15823f}.footer{color:#596a7c}
+.table-guide{background:#eef4fc;border:2px solid var(--ink);border-radius:10px;padding:12px;margin-top:20px;font-size:13px;line-height:1.7;color:var(--ink)}
+.grid-scroll{max-height:560px;max-height:min(60svh,560px);overflow:auto;position:relative;border:2px solid var(--ink);border-radius:12px;padding:0 8px 8px 0;scroll-padding:64px 10px 10px 66px;overscroll-behavior:contain;margin-top:12px}
+.grid{min-width:0;gap:4px;touch-action:auto;isolation:isolate}.grid-head{position:sticky;top:0;z-index:2;background:#fff9f5;min-height:54px;border-bottom:2px solid var(--ink);display:flex;flex-direction:column;justify-content:center;color:var(--muted)}
+.grid-time{position:sticky;left:0;background:#fff9f5;z-index:1;display:flex;align-items:center;justify-content:center;padding:0;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}.grid-corner{position:sticky;left:0;top:0;z-index:3;background:#fff9f5}
+.slot{min-height:44px;min-width:72px;touch-action:auto;border:1px solid #7a8799;font-size:13px;color:var(--ink);font-weight:800;scroll-margin:60px 10px 10px 66px}
+.slot.selected:after{content:'✓';font-size:18px}.slot:focus-visible{outline:3px solid var(--ink);outline-offset:-4px;box-shadow:inset 0 0 0 6px white}.slot:active{filter:brightness(.92)}
+.slot-detail{min-height:48px;font-size:14px;color:var(--ink);line-height:1.6;margin:12px 0;padding:10px 12px;background:#f0eafd;border-radius:10px}
+.save-feedback{border:2px solid var(--ink);border-radius:10px;padding:12px 14px;background:#edf3fa;color:var(--ink);font-size:14px;font-weight:750;min-height:48px}
+.save-feedback[data-state="dirty"],.save-feedback[data-state="saving"]{background:#fff1c4}.save-feedback[data-state="saved"]{background:#dcf5e2}.save-feedback[data-state="error"]{background:#ffe2df}
+.field-error{color:#9d2825;font-size:14px;line-height:1.6;margin:6px 0 0}input[aria-invalid="true"]{border-color:#9d2825;border-width:3px}
+:where(a,button,input,select):focus-visible{outline:3px solid var(--ink);outline-offset:4px}.skip-link{position:fixed;left:12px;top:-100px;z-index:100;background:white;border:3px solid var(--ink);padding:12px;color:var(--ink)}.skip-link:focus{top:12px}
+@media(max-width:560px){.wrap{padding-bottom:max(48px,env(safe-area-inset-bottom))}.panel{padding:16px}.grid-scroll{max-height:55svh}.person-row{align-items:stretch;flex-direction:column}.person-row .btn{width:100%}.event-top .actions .btn{flex:1}.table-guide{font-size:13px}.create:after{left:-8px}.create:before{right:-8px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.btn:hover,.btn:active{transform:none}}
+
+.join-card{grid-column:1/-1;max-width:680px;width:100%;margin:40px auto 0;padding:24px;background:#f0eafd}.join-card h2{margin:0 0 8px;font-size:22px}.join-fields{display:flex;align-items:end;gap:16px;margin:18px 0}.join-fields>div{flex:1;min-width:0}.join-fields label{display:block;margin-bottom:8px}#join-code{letter-spacing:.35em;font-variant-numeric:tabular-nums}.code-area{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fff1c4;border:2px solid #293548;border-radius:12px;padding:8px 12px;font-size:13px}.code-area strong{font-size:23px;letter-spacing:.15em;font-variant-numeric:tabular-nums}.code-area .btn{padding:6px 10px;font-size:13px}.event-top .actions{justify-content:flex-end;max-width:470px}.code-area strong:empty{display:none}@media(max-width:560px){.join-card{padding:20px}.join-fields{align-items:stretch;flex-direction:column}.join-fields .btn{width:100%}.event-top .actions{justify-content:flex-start;max-width:none}}
+
+/* Keep code joining directly below event creation, inside the same card. */
+.create .join-card{grid-column:auto;max-width:none;width:auto;margin:24px 0 0;padding:20px 0 0;background:transparent;border-top:2px dashed #b7bdc9}
+.create .join-card h2{font-size:15px;line-height:1.6;margin:0 0 12px;font-weight:800}
+.create .join-fields{margin:0;gap:12px;align-items:end;flex-direction:row}
+.create .join-fields label{font-size:12px;margin-bottom:6px}
+.create .join-fields .btn{width:auto;margin:0;min-height:46px;padding:10px 14px;font-size:14px;white-space:nowrap}
+#join-code{letter-spacing:.2em}#join-code::placeholder{letter-spacing:normal;font-size:14px}
+@media(max-width:360px){.create .join-fields{flex-direction:column;align-items:stretch}.create .join-fields .btn{width:100%}}
+
+
+#copy{min-width:148px;font-variant-numeric:tabular-nums}
+#copy[data-copy-state="success"]{background:#a0f39f;color:#293548}
+#copy[data-copy-state="error"]{background:#ffc1bc;color:#293548}
+</style>
+</head>
+<body>
+<header><nav><a class="brand" href="./"><span aria-hidden="true">✓</span>有空嗎？</a><span class="tag">把「你什麼時候有空？」變簡單。</span></nav></header>
+<a href="#main" class="skip-link">跳到主要內容</a><main class="wrap" id="main" tabindex="-1">
+<div id="config-alert" class="alert hidden">這個網站還沒連接 Firebase。請先依設定說明填入 Firebase 設定，才能建立活動和同步資料。</div>
+<div id="notice" role="status" aria-live="polite" aria-atomic="true" class="hidden"></div>
+<section id="home">
+<div class="intro"><div class="eyebrow">✦　把時間留給重要的人</div><h1>喬時間，<br><span>一起更簡單！</span></h1><p>建立活動、分享連結，讓大家圈出有空的時間。<br>最適合相聚的時刻，一眼就看見。</p></div>
+<div class="card create"><form id="create-form"><div class="section-head"><div><h2>建立一個活動</h2><p>先決定日期範圍，其他人就能一起填寫。</p></div><span class="badge">免費開始</span></div>
+<div class="fields"><div class="field full"><label for="title">活動名稱</label><input id="title" placeholder="例如：社團幹部會議" maxlength="60" required></div><div class="field"><label for="first">開始日期</label><input type="date" id="first" required></div><div class="field"><label for="last">結束日期</label><input type="date" id="last" required></div><div class="field"><label for="start">每天開始時間</label><select id="start"></select></div><div class="field"><label for="end">每天結束時間</label><select id="end"></select></div><div class="field full"><span class="helper">最多 7 天，每格為 30 分鐘。所有時間均以臺灣時間（UTC+8）表示。</span></div></div><button id="create" class="btn" type="submit">建立活動，開始喬時間 →</button></form><form id="join-form" class="join-card"><h2>已有活動？輸入代碼加入</h2><div class="join-fields"><div><label for="join-code">活動代碼</label><input id="join-code" type="text" inputmode="numeric" pattern="[0-9]{4}" minlength="4" maxlength="4" placeholder="4 位數字代碼" autocomplete="off" required aria-describedby="join-error"></div><button id="join" class="btn outline" type="submit">加入活動 →</button></div><p id="join-error" class="field-error" role="alert" hidden></p></form></div>
+
+<div class="steps"><div class="step"><span class="num">1</span><div><b>建立活動</b><p>選好日期與時間範圍</p></div></div><div class="step"><span class="num">2</span><div><b>邀請大家</b><p>分享連結或 4 位數代碼</p></div></div><div class="step"><span class="num">3</span><div><b>找到交集</b><p>看看大家何時都有空</p></div></div></div>
+</section>
+<section id="event" class="hidden"><button class="back" id="home-button">← 建立另一個活動</button><div class="event-top"><div><div class="eyebrow">LET'S FIND A TIME</div><h1 id="event-title" tabindex="-1"></h1><p id="event-subtitle" class="muted"></p></div><div class="actions"><div id="code-area" class="code-area"><span>活動代碼</span><strong id="event-code">—</strong><button id="make-code" class="btn outline hidden" type="button">產生代碼</button></div><span class="status" id="connection">連線中</span><button id="copy" class="btn outline" type="button">複製活動連結</button><span id="copy-status" class="sr" role="status" aria-live="polite" aria-atomic="true"></span></div></div>
+<div class="layout"><div class="card panel"><div class="section-head"><div><h2 id="grid-title">填寫你的時間</h2><p id="grid-help">點擊或拖曳格子，標記你有空的時間。</p></div><div id="legend" class="legend hidden"><span>少</span><span class="swatch"></span><span class="swatch s1"></span><span class="swatch s2"></span><span class="swatch s3"></span><span>多</span></div></div><div class="actions"><button id="edit-tab" aria-pressed="true" class="btn secondary" type="button">我的時間</button><button id="result-tab" aria-pressed="false" class="btn outline" type="button">大家的時間</button></div><div class="sr" id="table-guide">手機：輕點選取，滑動瀏覽。滑鼠：可拖曳選取。鍵盤：方向鍵移動，空白鍵或 Enter 選取。</div><div class="grid-scroll" id="grid-scroll"><div id="grid" class="grid" role="group" aria-label="時間表" aria-describedby="table-guide"></div></div><p id="slot-detail" class="sr" role="status" aria-live="polite">輕點時間格查看詳細資訊。</p><p id="grid-note" class="sr">綠色代表你有空。按一次選取，再按一次取消。</p><div id="save-area"><div class="sr" id="save-status" role="status" aria-live="polite" aria-atomic="true">尚未填寫</div><div class="person-row"><div style="flex:1"><label for="name">你的名字</label><input id="name" maxlength="30" placeholder="讓大家知道你是誰" aria-describedby="name-error" autocomplete="nickname"><p id="name-error" class="field-error" hidden></p></div><button class="btn" id="save" type="button">儲存我的時間</button></div><p class="muted" id="identity-note">資料會與這個瀏覽器綁定；換裝置或清除網站資料後，可能需要重新填寫。</p></div></div>
+<aside class="sidebar"><div class="card"><p class="side-title">已填寫的人</p><div class="count"><span id="count">0</span> <small>位夥伴</small></div><div id="people" class="people"><span class="empty">還沒有人填寫</span></div></div><div class="card"><p class="side-title">最佳時段</p><div id="best" class="best"><span class="empty">有人填寫後就會出現在這裡。</span></div></div><div class="card"><p class="side-title">小提醒</p><p class="muted">知道連結的人都能查看活動與參與者時間，請只分享給信任的人。</p></div></aside></div></section>
+<div class="footer">有空嗎？ · 讓相聚更容易一點</div>
+</main>
+<script type="module">
+// Firebase 網頁設定；示範模式不會連線至資料庫。
+const firebaseConfig = {
+  apiKey: "AIzaSyAU0vEgPMScNsO9F3v7lVazN2pg3vVsLuU",
+  authDomain: "when-free-cd988.firebaseapp.com",
+  databaseURL: "https://when-free-cd988-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "when-free-cd988",
+  storageBucket: "when-free-cd988.firebasestorage.app",
+  messagingSenderId: "362978686484",
+  appId: "1:362978686484:web:3a0a3835b297d777ed1901"
+};
+const $ = id => document.getElementById(id);
+const show = (id, yes=true) => $(id).classList.toggle('hidden',!yes);
+const notice = (text,error=false) => { $('notice').className='alert'+(error?' error':'');$('notice').textContent=text; };
+const pad = n => String(n).padStart(2,'0');
+const hourText = n => `${pad(Math.floor(n/2))}:${n%2?'30':'00'}`;
+const formatDate = s => { const [y,m,d]=s.split('-').map(Number); return `${m}/${d}（${'日一二三四五六'[new Date(Date.UTC(y,m-1,d)).getUTCDay()]}）`; };
+const today = () => new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+function daysBetween(a,b){const out=[];let d=new Date(`${a}T00:00:00Z`),end=new Date(`${b}T00:00:00Z`);while(d<=end&&out.length<8){out.push(d.toISOString().slice(0,10));d.setUTCDate(d.getUTCDate()+1);}return out;}
+for(let i=0;i<=48;i++){const o=document.createElement('option');o.value=i;o.textContent=hourText(i);if(i<48)$('start').append(o.cloneNode(true));if(i>0)$('end').append(o);}
+$('start').value='16';$('end').value='44';$('first').value=today();$('last').value=today();
+let db,user,api,eventData,active='edit',selected=new Set(),dirty=false,saving=false,version=0,connected=false;
+let unsubscribe,connectionUnsubscribe,focusedKey=null,drag=null,suppressMouseClick=false,saveFailure=false;
+const configured=Object.values(firebaseConfig).every(v=>v&&!v.startsWith('YOUR_'));
+if(!configured)show('config-alert');
+const eventId=()=>new URL(location.href).searchParams.get('event');
+const key=(d,t)=>`${d}_${t}`;
+const participants=()=>Object.values(eventData?.participants||{}).filter(p=>p&&typeof p.name==='string');
+function setSaveStatus(state,text){$('save-status').dataset.state=state;$('save-status').textContent=text;}
+function refreshSave(){
+ $('save').disabled=saving||(!connected);
+ $('save').textContent=saving?'儲存中…':saveFailure?'重試儲存':'儲存我的時間';
+ $('save-area').setAttribute('aria-busy',String(saving));
+ if(saving)setSaveStatus('saving',connected?'正在儲存，請稍候…':'連線中斷，正在等待重新連線…');
+ else if(saveFailure)setSaveStatus('error','儲存失敗，選擇已保留。請檢查連線後重試。');
+ else if(dirty)setSaveStatus('dirty',`尚未儲存 · 已選 ${selected.size} 格（${selected.size/2} 小時）`);
+ else if(!connected)setSaveStatus('error','目前離線，已載入的時間仍可編輯；連線恢復後請儲存。');
+ else if(eventData?.participants?.[user?.uid])setSaveStatus('saved','已儲存 · 大家可以看到你的時間。');
+ else setSaveStatus('idle','尚未填寫 · 選好時間並輸入名字後，記得儲存。');
+}
+function changed(){version++;dirty=true;saveFailure=false;refreshSave();}
+function err(e){console.error(e);notice('操作失敗：'+(e?.message||'請檢查連線與 Firebase 設定。'),true);}
+function verifyEvent(e){return e&&typeof e.title==='string'&&Array.isArray(e.dates)&&e.dates.length>0&&e.dates.length<=7&&e.dates.every(d=>/^\d{4}-\d{2}-\d{2}$/.test(d))&&Number.isInteger(e.start)&&Number.isInteger(e.end)&&e.start>=0&&e.end<=48&&e.start<e.end;}
+function titleEvent(){show('home',false);show('event');$('event-title').textContent=eventData.title;$('event-subtitle').textContent=`${formatDate(eventData.dates[0])} – ${formatDate(eventData.dates.at(-1))} · ${hourText(eventData.start)}–${hourText(eventData.end)} · 臺灣時間`;renderCode();}
+async function init(){
+ if(!configured)return;
+ try{
+ const [app,database,auth]=await Promise.all([import('https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js'),import('https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js'),import('https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js')]);
+ const firebase=app.initializeApp(firebaseConfig);db=database.getDatabase(firebase);api=database;
+ const account=await auth.signInAnonymously(auth.getAuth(firebase));
+ user=account.user;
+ connectionUnsubscribe=api.onValue(api.ref(db,'.info/connected'),snap=>{connected=snap.val()===true;$('connection').textContent=connected?'已連線 · 即時同步':'離線 · 等待重新連線';refreshSave();});
+ if(eventId())openEvent(eventId());
+ }catch(e){$('connection').textContent='連線失敗';err(e);}
+}
+function openEvent(id){
+ if(!/^[a-f0-9]{32}$/.test(id)){notice('活動連結格式有誤。',true);return;}
+ show('home',false);show('event');$('connection').textContent='載入活動中…';
+ unsubscribe?.();unsubscribe=api.onValue(api.ref(db,`events/${id}`),snap=>{
+ const data=snap.val();if(!verifyEvent(data)){notice('找不到活動，或活動資料格式有誤。',true);$('connection').textContent='無法載入活動';return;}
+ const firstLoad=!eventData;eventData=data;titleEvent();$('connection').textContent=connected?'已連線 · 即時同步':'離線 · 等待重新連線';
+ if(!dirty&&!saving){const mine=data.participants?.[user.uid];selected=new Set(Object.keys(mine?.slots||{}));$('name').value=mine?.name||'';}
+ render();refreshSave();if(firstLoad)$('event-title').focus();
+ },e=>{$('connection').textContent='無法讀取活動';err(e);});
+}
+function countsBySlot(){const counts={};for(const p of participants())for(const d of eventData.dates)for(let t=eventData.start;t<eventData.end;t++){const k=key(d,t);if(p.slots?.[k]===true)counts[k]=(counts[k]||0)+1;}return counts;}
+function updateCell(cell){const k=cell.dataset.key,d=cell.dataset.date,t=Number(cell.dataset.time);if(active==='edit'){const on=selected.has(k);cell.classList.toggle('selected',on);cell.setAttribute('aria-pressed',String(on));cell.setAttribute('aria-label',`${formatDate(d)} ${hourText(t)}–${hourText(t+1)}，${on?'已選取':'未選取'}`);}}
+function describeCell(cell){const d=cell.dataset.date,t=Number(cell.dataset.time);const count=countsBySlot()[cell.dataset.key]||0;$('slot-detail').textContent=`${formatDate(d)} ${hourText(t)}–${hourText(t+1)} · ${active==='edit'?(selected.has(cell.dataset.key)?'你已選取':'你尚未選取'):`${count} / ${participants().length} 人有空`}`;}
+function setGridFocus(cell,move=false){if(!cell)return;for(const item of $('grid').querySelectorAll('.slot'))item.tabIndex=item===cell?0:-1;focusedKey=cell.dataset.key;if(move){cell.focus({preventScroll:true});cell.scrollIntoView({block:'nearest',inline:'nearest'});}}
+function render(){
+ if(!eventData)return;
+ const previous=document.activeElement?.closest('.slot');const restore=!!previous;const oldKey=previous?.dataset.key||focusedKey;
+ const people=participants(),counts=countsBySlot();$('count').textContent=people.length;
+ $('people').replaceChildren();if(!people.length){const el=document.createElement('span');el.className='empty';el.textContent='還沒有人填寫';$('people').append(el);}else for(const p of people){const el=document.createElement('span');el.className='chip';el.textContent=p.name;$('people').append(el);}
+ const max=Math.max(0,...Object.values(counts));$('best').replaceChildren();
+ if(!max){const el=document.createElement('span');el.className='empty';el.textContent='有人填寫空閒時段後就會出現在這裡。';$('best').append(el);}else{const el=document.createElement('p');el.textContent=`最多 ${max} / ${people.length} 人有空`;$('best').append(el);let n=0;for(const d of eventData.dates)for(let t=eventData.start;t<eventData.end;t++)if(counts[key(d,t)]===max){if(n++<5){const p=document.createElement('p');p.textContent=`${formatDate(d)} ${hourText(t)}–${hourText(t+1)}`;$('best').append(p);}}if(n>5){const p=document.createElement('p');p.textContent=`還有 ${n-5} 個同分時段`;$('best').append(p);}}
+ const grid=$('grid');grid.replaceChildren();grid.style.gridTemplateColumns=`56px repeat(${eventData.dates.length}, minmax(80px,1fr))`;
+ const blank=document.createElement('div');blank.className='grid-corner';grid.append(blank);
+ for(const d of eventData.dates){const h=document.createElement('div');h.className='grid-head';h.textContent=formatDate(d);grid.append(h);}
+ for(let t=eventData.start;t<eventData.end;t++){const time=document.createElement('div');time.className='grid-time';time.textContent=hourText(t);grid.append(time);for(const d of eventData.dates){const cell=document.createElement('button'),k=key(d,t);cell.type='button';cell.className='slot';cell.dataset.key=k;cell.dataset.date=d;cell.dataset.time=t;cell.tabIndex=-1;
+ if(active==='edit')updateCell(cell);else{const n=counts[k]||0;if(n)cell.classList.add('heat'+Math.min(3,Math.ceil(3*n/people.length)));cell.textContent=`${n}/${people.length}`;cell.setAttribute('aria-label',`${formatDate(d)} ${hourText(t)}–${hourText(t+1)}，${n} / ${people.length} 人有空`);}
+ grid.append(cell);}}
+ const chosen=Array.from(grid.querySelectorAll('.slot')).find(c=>c.dataset.key===oldKey)||grid.querySelector('.slot');setGridFocus(chosen,restore);
+}
+function mark(cell,on){if(!cell||active!=='edit')return;const k=cell.dataset.key;if(selected.has(k)===on)return;on?selected.add(k):selected.delete(k);changed();updateCell(cell);describeCell(cell);}
+$('grid').addEventListener('focusin',e=>{const cell=e.target.closest('.slot');if(cell){setGridFocus(cell);describeCell(cell);}});
+$('grid').addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.button!==0)return;const cell=e.target.closest('.slot');if(!cell||active!=='edit')return;e.preventDefault();suppressMouseClick=true;drag={id:e.pointerId,on:!selected.has(cell.dataset.key)};setGridFocus(cell,true);mark(cell,drag.on);$('grid').setPointerCapture(e.pointerId);});
+$('grid').addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;const cell=document.elementFromPoint(e.clientX,e.clientY)?.closest('.slot');if(cell&&$('grid').contains(cell))mark(cell,drag.on);});
+function endDrag(){drag=null;}
+$('grid').addEventListener('pointerup',endDrag);$('grid').addEventListener('pointercancel',()=>{endDrag();suppressMouseClick=false;});$('grid').addEventListener('lostpointercapture',endDrag);
+$('grid').addEventListener('click',e=>{if(suppressMouseClick&&e.detail!==0){suppressMouseClick=false;return;}suppressMouseClick=false;const cell=e.target.closest('.slot');if(!cell)return;setGridFocus(cell);if(active==='edit')mark(cell,!selected.has(cell.dataset.key));else describeCell(cell);});
+$('grid').addEventListener('keydown',e=>{const cell=e.target.closest('.slot');if(!cell||e.altKey||e.ctrlKey||e.metaKey)return;const cells=Array.from($('grid').querySelectorAll('.slot')),i=cells.indexOf(cell),cols=eventData.dates.length;let next=i;switch(e.key){case'ArrowRight':if(i%cols<cols-1)next++;break;case'ArrowLeft':if(i%cols>0)next--;break;case'ArrowDown':next=Math.min(cells.length-1,i+cols);break;case'ArrowUp':next=Math.max(0,i-cols);break;case'Home':next=i-i%cols;break;case'End':next=Math.min(cells.length-1,i-i%cols+cols-1);break;default:return;}e.preventDefault();setGridFocus(cells[next],true);});
+function tab(which){active=which;show('save-area',which==='edit');show('legend',which==='result');$('grid-title').textContent=which==='edit'?'填寫你的時間':'大家的時間';$('grid-help').textContent=which==='edit'?'點選空閒時段，選好後記得儲存。':'格內顯示有空人數／總人數，顏色越深表示越多人有空。';$('grid-note').textContent=which==='edit'?'勾號與綠色代表你已選取。再次點選可以取消。':'點選格子可查看人數；可用方向鍵移動到其他時段。';for(const id of ['edit','result']){$(`${id}-tab`).className='btn '+(which===id?'secondary':'outline');$(`${id}-tab`).setAttribute('aria-pressed',String(which===id));}$('slot-detail').textContent='輕點時間格查看詳細資訊。';render();}
+$('edit-tab').onclick=()=>tab('edit');$('result-tab').onclick=()=>tab('result');
+$('name').addEventListener('input',()=>{$('name').removeAttribute('aria-invalid');$('name-error').hidden=true;changed();});
+$('save').onclick=async()=>{
+ if(saving)return;const name=$('name').value.trim();if(!name){$('name-error').hidden=false;$('name-error').textContent='請輸入你的名字，再儲存時間。';$('name').setAttribute('aria-invalid','true');$('name').focus();return;}
+ if(!connected||!db||!user||!eventData){setSaveStatus('error','尚未連接活動，請確認網路後再試。');return;}
+ const slots=Object.fromEntries(Array.from(selected,k=>[k,true])),payload={name,slots},savedVersion=version,saveHadFocus=document.activeElement===$('save');saving=true;saveFailure=false;refreshSave();
+ try{
+ await api.set(api.ref(db,`events/${eventId()}/participants/${user.uid}`),payload);
+ // A newer edit must remain dirty even if an earlier write has just completed.
+ if(version===savedVersion)dirty=false;
+ render();
+ }catch(e){saveFailure=true;dirty=true;console.error(e);}finally{saving=false;refreshSave();if(saveHadFocus&&document.activeElement===document.body)$('save').focus({preventScroll:true});}
+};
+$('create-form').addEventListener('submit',async e=>{e.preventDefault();if(!db||!user||!connected){notice('尚未連接 Firebase，請確認網路與 Firebase 設定後再試。',true);return;}
+ const title=$('title').value.trim(),first=$('first').value,last=$('last').value,start=Number($('start').value),end=Number($('end').value);if(!title){$('title').focus();return;}if(first>last){$('last').setCustomValidity('結束日期不得早於開始日期');$('last').reportValidity();return;}if(start>=end){$('end').setCustomValidity('結束時間必須晚於開始時間');$('end').reportValidity();return;}
+ const dates=daysBetween(first,last);if(dates.length>7){$('last').setCustomValidity('日期範圍最多 7 天');$('last').reportValidity();return;}
+ const id=Array.from(crypto.getRandomValues(new Uint8Array(16)),b=>b.toString(16).padStart(2,'0')).join('');$('create').disabled=true;$('create').textContent='建立中…';
+ try{await api.set(api.ref(db,`events/${id}`),{title,dates,start,end,owner:user.uid,createdAt:Date.now()});let codeError;try{await assignCode(id);}catch(e){codeError=e;}history.pushState(null,'',`?event=${id}`);show('notice',false);openEvent(id);if(codeError)notice('活動已建立，可以用連結邀請。產生代碼失敗：'+codeMessage(codeError),true);} catch(error){err(error);}finally{$('create').disabled=false;$('create').textContent='建立活動，開始喬時間 →';}});
+for(const id of ['first','last','start','end'])$(id).addEventListener('input',()=>{$('last').setCustomValidity('');$('end').setCustomValidity('');});
+let copyResetTimer;
+$('copy').onclick=async()=>{
+ const button=$('copy');if(button.disabled)return;
+ clearTimeout(copyResetTimer);button.disabled=true;button.dataset.copyState='copying';button.textContent='複製中…';button.setAttribute('aria-busy','true');$('copy-status').textContent='';
+ try{
+ await navigator.clipboard.writeText(location.href);
+ button.dataset.copyState='success';button.textContent='✓ 已複製';button.title='活動連結已複製';$('copy-status').textContent='活動連結已複製。';
+ }catch{
+ button.dataset.copyState='error';button.textContent='請複製網址列';button.title='無法自動複製，請選取瀏覽器網址列並複製活動連結。';$('copy-status').textContent=button.title;
+ }finally{
+ button.disabled=false;button.setAttribute('aria-busy','false');
+ copyResetTimer=setTimeout(()=>{button.dataset.copyState='';button.textContent='複製活動連結';button.title='';},2500);
+ }
+};
+$('home-button').onclick=()=>{if(saving){notice('仍在儲存中，請等候完成再離開。');return;}if(dirty&&!confirm('時間尚未儲存，確定放棄修改並回到首頁？'))return;unsubscribe?.();history.pushState(null,'',location.pathname);eventData=null;selected=new Set();dirty=false;version=0;focusedKey=null;show('event',false);show('home');show('notice',false);$('title').focus();};
+
+function codeMessage(e){return /permission|denied/i.test(e?.code||e?.message||'')?'請先發布新版 Firebase 規則，再重試。':(e?.message||'請檢查連線後重試。');}
+function renderCode(){const code=eventData?.joinCode;$('event-code').textContent=/^[0-9]{4}$/.test(code||'')?code:'尚未產生';show('make-code',!code&&eventData?.owner===user?.uid);}
+async function assignCode(id){
+ for(let attempt=0;attempt<20;attempt++){
+ const code=String(crypto.getRandomValues(new Uint32Array(1))[0]%10000).padStart(4,'0'),path=api.ref(db,`eventCodes/${code}`);
+ // Transactions abort if another event already owns this code.
+ const result=await api.runTransaction(path,current=>current===null?{eventId:id,owner:user.uid}:undefined,{applyLocally:false});
+ if(!result.committed)continue;
+ try{await api.set(api.ref(db,`events/${id}/joinCode`),code);return code;}
+ catch(e){try{await api.remove(path);}catch(cleanup){console.error(cleanup);}throw e;}
+ }
+ throw new Error('暫時找不到可用代碼，請稍後重試。');
+}
+$('make-code').onclick=async()=>{if(!connected||!eventData){notice('請等待連線完成後再產生代碼。',true);return;}$('make-code').disabled=true;$('make-code').textContent='產生中…';try{await assignCode(eventId());notice('活動代碼已產生，可以分享給夥伴。');}catch(e){notice(codeMessage(e),true);}finally{$('make-code').disabled=false;$('make-code').textContent='產生代碼';}};
+$('join-code').addEventListener('input',()=>{$('join-error').hidden=true;$('join-code').removeAttribute('aria-invalid');});
+$('join-form').addEventListener('submit',async e=>{
+ e.preventDefault();const code=$('join-code').value.trim();
+ const fail=text=>{$('join-error').textContent=text;$('join-error').hidden=false;$('join-code').setAttribute('aria-invalid','true');$('join-code').focus();};
+ if(!/^[0-9]{4}$/.test(code)){fail('請輸入完整的 4 位數字，包含開頭的 0。');return;}
+ if(!connected||!db||!user){fail('尚未連線，請稍候或確認網路與 Firebase 設定。');return;}
+ $('join').disabled=true;$('join').textContent='加入中…';
+ try{
+ const entry=(await api.get(api.ref(db,`eventCodes/${code}`))).val();
+ if(!entry||!/^[a-f0-9]{32}$/.test(entry.eventId||'')){fail('找不到這個活動代碼，請向主辦人確認。');return;}
+ const data=(await api.get(api.ref(db,`events/${entry.eventId}`))).val();
+ if(!verifyEvent(data)||data.joinCode!==code){fail('此代碼目前無法加入活動，請向主辦人確認。');return;}
+ history.pushState(null,'',`?event=${entry.eventId}`);show('notice',false);openEvent(entry.eventId);
+ }catch(error){fail(codeMessage(error));}finally{$('join').disabled=false;$('join').textContent='加入活動 →';}
+});
+
+window.addEventListener('beforeunload',e=>{if(dirty||saving){e.preventDefault();e.returnValue='';}});
+window.addEventListener('popstate',()=>location.reload());
+init();
+</script>
+</body>
+</html>
+
+
+
+
+

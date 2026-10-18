@@ -1,0 +1,76 @@
+有空嗎？｜Firebase 設定與作品規格
+
+此作品的網頁只有 index.html 一個檔案。多人同步依賴你自己的 Firebase Realtime Database 和匿名登入；未設定前，網站會顯示提示，不能建立活動。使用時需要連網，因為 Firebase SDK 從 Google CDN 載入。
+
+一、建立 Firebase 專案
+1. 前往 https://console.firebase.google.com/，以自己的 Google 帳號登入，建立專案。
+2. 在專案總覽新增「網頁」應用程式（</>），複製 Firebase 網頁設定中的 apiKey、authDomain、projectId、appId。請不要提供密碼、服務帳戶私鑰或其他管理員憑證。
+3. 開啟 Realtime Database，建立資料庫。使用鎖定模式即可；記下資料庫網址（databaseURL）。它通常以 firebaseio.com 或 firebasedatabase.app 結尾。
+4. 開啟 Authentication → Sign-in method（登入方式），啟用「匿名」（Anonymous）。每位使用者會在瀏覽器中自動取得匿名身分，不需要填帳號密碼。
+5. 在 Realtime Database → 規則中，貼上下方規則並發布。請只在這個作品專用的新資料庫使用；規則會取代目前資料庫的既有規則。
+
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "events": {
+      "$eventId": {
+        ".read": "auth != null",
+        ".write": "auth != null && !data.exists() && newData.child('owner').val() === auth.uid",
+        ".validate": "newData.hasChildren(['title', 'dates', 'start', 'end', 'owner', 'createdAt']) && newData.child('title').isString() && newData.child('title').val().length <= 60",
+        "participants": {
+          "$uid": {
+            ".write": "auth != null && auth.uid === $uid && root.child('events').child($eventId).exists()",
+            ".validate": "newData.hasChild('name') && newData.child('name').isString() && newData.child('name').val().length > 0 && newData.child('name').val().length <= 30",
+            "slots": {
+              "$slot": {
+                ".validate": "newData.val() === true"
+              }
+            }
+          }
+        },
+        "joinCode": {
+          ".write": "auth != null && root.child('events').child($eventId).child('owner').val() === auth.uid && !data.exists()",
+          ".validate": "newData.isString() && newData.val().matches(/^[0-9]{4}$/) && root.child('eventCodes').child(newData.val()).child('eventId').val() === $eventId"
+        }
+      }
+    },
+    "eventCodes": {
+      "$code": {
+        ".read": "auth != null",
+        ".write": "auth != null && ((!data.exists() && newData.child('owner').val() === auth.uid && root.child('events').child(newData.child('eventId').val()).child('owner').val() === auth.uid && !root.child('events').child(newData.child('eventId').val()).child('joinCode').exists()) || (data.child('owner').val() === auth.uid && !newData.exists() && root.child('events').child(data.child('eventId').val()).child('joinCode').val() !== $code))",
+        ".validate": "$code.matches(/^[0-9]{4}$/) && newData.hasChildren(['eventId', 'owner'])",
+        "eventId": {
+          ".validate": "newData.isString() && newData.val().matches(/^[a-f0-9]{32}$/)"
+        },
+        "owner": {
+          ".validate": "newData.isString() && newData.val() === auth.uid"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    }
+  }
+}
+
+6. 用文字編輯器打開 index.html，找到「const firebaseConfig」，將 YOUR_API_KEY、YOUR_PROJECT_ID、YOUR_DATABASE_URL、YOUR_APP_ID 替換成你的網頁設定。authDomain 請填入 Firebase 提供的完整值。儲存檔案。
+7. 透過本機 HTTP 伺服器或 GitHub Pages 開啟網頁。建立一個活動，複製連結，再用另一個瀏覽器或另一台裝置開啟，分別填寫並測試同步。
+
+重要限制：任何知道活動連結的人都能查看其中的姓名和時間，也都能新增自己的紀錄；請只分享給信任的人。匿名身分儲存在瀏覽器，清除網站資料或換裝置後可能無法修改原紀錄。這份規則限制每個匿名身分只能更改自己的填寫內容，但不提供完整的成員邀請、濫用防護或活動管理功能。不要存放敏感資訊。
+
+二、GitHub Pages
+1. 建立 GitHub 儲存庫，上傳設定完成的 index.html 到儲存庫根目錄並提交。
+2. 在儲存庫 Settings → Pages → Build and deployment，選擇從 branch 部署，選擇放置 index.html 的 branch 與根目錄，儲存。
+3. 等待 Pages 建置完成，從 Pages 設定頁複製正式網址。用無痕視窗與另一個裝置測試建立活動、分享連結、填寫與同步。
+
+三、規格草案（依實際測試結果調整）
+名稱：有空嗎？
+目的：幫社團或朋友快速找到大家方便的共同時間。
+使用者：活動發起人及持有活動連結的參與者。
+功能：建立活動、設定最多 7 天與每日時間範圍、複製專屬連結、以半小時為單位選取空閒時間、儲存並修改自己的選擇、即時查看參與人數與時間熱度、顯示最多人有空的時段。
+技術：單一 HTML、CSS、JavaScript；使用 Firebase Authentication 匿名登入與 Realtime Database 同步資料；以 GitHub Pages 發布前端。
+限制：所有時間均為臺灣時間；每人每個活動以同一個瀏覽器匿名身分對應一筆資料；使用者應信任所有取得連結的人；需網際網路與正確的 Firebase 設定。
+
+
+新增功能：首頁可輸入 4 位數字活動代碼加入，建立活動後自動配發代碼。舊活動由原建立者按「產生代碼」取得代碼。代碼不是密碼，知道代碼的人可查看活動。已移除試用時間表。請將 firebase-rules.json 的完整內容發布到 Realtime Database 規則，才能啟用代碼功能。

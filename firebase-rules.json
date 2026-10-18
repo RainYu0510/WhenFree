@@ -1,0 +1,44 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "events": {
+      "$eventId": {
+        ".read": "auth != null",
+        ".write": "auth != null && !data.exists() && newData.child('owner').val() === auth.uid",
+        ".validate": "newData.hasChildren(['title', 'dates', 'start', 'end', 'owner', 'createdAt']) && newData.child('title').isString() && newData.child('title').val().length <= 60",
+        "participants": {
+          "$uid": {
+            ".write": "auth != null && auth.uid === $uid && root.child('events').child($eventId).exists()",
+            ".validate": "newData.hasChild('name') && newData.child('name').isString() && newData.child('name').val().length > 0 && newData.child('name').val().length <= 30",
+            "slots": {
+              "$slot": {
+                ".validate": "newData.val() === true"
+              }
+            }
+          }
+        },
+        "joinCode": {
+          ".write": "auth != null && root.child('events').child($eventId).child('owner').val() === auth.uid && !data.exists()",
+          ".validate": "newData.isString() && newData.val().matches(/^[0-9]{4}$/) && root.child('eventCodes').child(newData.val()).child('eventId').val() === $eventId"
+        }
+      }
+    },
+    "eventCodes": {
+      "$code": {
+        ".read": "auth != null",
+        ".write": "auth != null && ((!data.exists() && newData.child('owner').val() === auth.uid && root.child('events').child(newData.child('eventId').val()).child('owner').val() === auth.uid && !root.child('events').child(newData.child('eventId').val()).child('joinCode').exists()) || (data.child('owner').val() === auth.uid && !newData.exists() && root.child('events').child(data.child('eventId').val()).child('joinCode').val() !== $code))",
+        ".validate": "$code.matches(/^[0-9]{4}$/) && newData.hasChildren(['eventId', 'owner'])",
+        "eventId": {
+          ".validate": "newData.isString() && newData.val().matches(/^[a-f0-9]{32}$/)"
+        },
+        "owner": {
+          ".validate": "newData.isString() && newData.val() === auth.uid"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    }
+  }
+}
